@@ -1,0 +1,122 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.omniglot-translation-progress {
+	margin-top: 20px;
+}
+.omniglot-translation-progress:not(.active) {
+	display: none;
+}
+.omniglot-translation-progress .progress-table {
+	max-width: 550px;
+	width: 100%;
+}
+.omniglot-translation-progress .progress-table .progressbar-column {
+	width: 50%;
+}
+.omniglot-translation-progress .progressbar {
+	height: 20px;
+	overflow: hidden;
+	background-color: #e9e9e9;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.omniglot-translation-progress .progressbar > div {
+	float: left;
+	width: 0%;
+	height: 100%;
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+	text-align: center;
+	background-color: #337ab7;
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+	box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+	-webkit-transition: width .6s ease;
+	-o-transition: width .6s ease;
+	transition: width .6s ease;
+}
+
+.omniglot-translation-progress .omniglot-success-message {
+	color: green;
+	font-weight: bold;
+}
+
+.omniglot-translation-error {
+	display: none;
+	margin: 5px 0 0;
+	background: #fff;
+	border-left: 4px solid #dc3232;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	padding: 1px 12px;
+}
+
+table.form-table select {
+    width: 300px;
+}
+
+.cn_spinner {
+    background: url(../img/spinner.gif) no-repeat;
+    background-size: 24px 20px;
+    display: inline-block;
+    /* visibility: hidden; */
+    float: left;
+    vertical-align: middle;
+    /* opacity: .7; */
+    /* filter: alpha(opacity=70); */
+    width: 22px;
+    height: 22px;
+}
+.text-center{
+text-align: center;
+}
+.text-right{
+	float: right;
+}
+.text-left{
+	float: left
+}
+span.cn_spinner_text{margin: 10px}
+.cn_spinner_div{visibility: hidden;}
+
+.mylod{
+	display: none;
+  left:0!important;
+  top: 0px!important;
+  width: 100%!important;
+  height: 100%!important;
+  position: fixed!important;
+  /* background: rgba(0, 0, 0, 0.5)!important; */
+  z-index: 999999999 !important; 
+}
+.mylodsub{
+	width: 200px;
+	position: fixed;
+	top: 30%;
+	left: 40%;
+	right: 0px;
+	margin: 0px auto;
+	border-radius: 3px;
+	/* background: #ddd; */
+	text-align: center;
+}
+.spinner1_img{
+	width: 100%
+}
+
+input#override_translation {
+    display: none;
+}
+
+
+span.select2-selection.select2-selection--multiple {
+    width: 170px;
+}
+input.select2-search__field{width: 100%!important;}
+
+span.select2.select2-container.select2-container--default {
+    width: 60% !important;
+}

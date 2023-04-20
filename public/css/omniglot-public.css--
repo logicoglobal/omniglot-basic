@@ -1,0 +1,348 @@
+*
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ .translatedlink{
+ 	text-decoration: none;
+    margin-right: 10px;
+ }
+ .icondiv {
+   width: 20px;
+    float: left;
+    margin-right: 7px;
+    padding: 0px;
+    line-height: 0.20;
+}
+.cnicon {
+    overflow: hidden;
+    margin: 10px 0;
+}
+.cn_available{
+    font-size: 13px;
+	/* font-weight: bold; */
+	margin-right: 5px;
+	float: left;
+}
+img.icon_img {
+    max-width: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.cn_select_li {
+    display: none;
+
+}
+.cn_active{display: block!important;}
+.cn_select_ul {
+        cursor: pointer;
+    margin: 0;
+    padding: 0px;
+}
+.cn_select {
+    width: 200px;
+    border: 1px solid;
+}
+.cn_select_li {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.cn_select_li:hover {
+    background: #000;
+    color: #fff;
+}
+
+.cn_select_li_page {
+    display: none;
+
+}
+.cn_select_li_page {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.cn_select_li_page:hover {
+    background:#000;
+    color: #fff;
+}
+.text-wrap {width: 100%;max-width: 215px;}
+
+/* languagepicker start  */
+.languagepicker{
+  display: none; 
+}
+
+.lang-select-list{
+  padding-left: 0px;
+  margin: 0;
+
+}
+
+.lang-select-list img, .btn-lang-select img{
+  width: 22px;
+  
+}
+
+.lang-select-list li{
+  list-style: none;
+  float: none;
+  padding-bottom: 0px;
+  width: 100%;
+  text-align: left;
+  line-height: 0;
+}
+.text-wrap .lang-select-list li{
+  text-align: center;
+}
+.lang-select-list li:hover{
+ background-color: #F4F3F3;
+ cursor: pointer;
+}
+
+.lang-select-list li img{
+  margin: 5px;
+}
+
+.lang-select-list li span, .btn-lang-select li span{
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.btn-lang-select li span{
+    font-weight: 400;
+    display: inline-block;
+    line-height: 23px;
+}
+/* item list */
+
+.lang-select{
+  display: none;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 5px;
+  margin-top: 10px;
+  z-index: 999;
+  min-width: 215px;  
+}
+
+.open{
+  display: show !important;
+}
+
+.btn-lang-select {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 350px;
+    height: 34px;
+    border-radius: 5px;
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    color: inherit !important;
+    font-size: 17px;
+    text-align: left;
+    padding: 0 15px;
+    line-height: 0;
+}
+
+.btn-lang-select li{
+  list-style: none;
+  float: left;
+  padding-bottom: 0px;
+  margin-top: -15px;
+}
+
+.btn-lang-select:hover li{
+  margin-left: 0px;
+}
+
+.btn-lang-select:hover{
+  background-color: #F4F3F3;
+  border: 1px solid transparent;
+  box-shadow: inset 0 0px 0px 1px #ccc;
+}
+
+.btn-lang-select:focus{
+   outline:none;
+}
+
+.lang-select-wrap{
+  margin: 0;
+}
+
+button.btn-lang-select {
+  position: relative;
+  white-space: nowrap;
+  padding-right: 25px;
+}
+
+button.btn-lang-select::after {
+  content: "";
+  position: absolute;
+  top: 53%;
+  right: 10px;
+  height: 10px;
+  width: 10px;
+  background: url(../img/down-chevron.svg);
+  background-size: cover;
+  transform: translate(0, -50%);
+
+}
+
+/* languagepicker end */
+
+.btn-lang-select li {
+    list-style: none;
+    float: none;
+    padding-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.lang-select {
+
+    margin-top: 10px;
+}
+
+.btn-lang-select li span {
+    font-weight: 400;
+    display: inline-block;
+    line-height: 23px;
+}
+
+
+
+
+
+.lang-select {
+      position: absolute;
+    top: 100%;
+    width: auto;
+    background: #fff;
+    padding: 10px 15px;
+    font-size: 18px;
+}
+.wpw-dropdown img {
+    margin-top: 15px;
+}
+.page_open_tab {
+  display: none;
+}
+
+/*.wpw-mega-menu button.btn-lang-select {
+    width: 79px !important;
+}*/
+
+.dropdown {
+    position: relative;
+    overflow: inherit;
+}
+
+.btn-lang-select{
+  width: 215px;
+}
+
+.dropdown-wrap{
+  width: 215px;
+}
+
+
+.dropdown-wrap .lang-select-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dropdown-wrap .lang-select-list li {
+    width: 33.33%;
+}
+
+.cnicon.dropdown {
+    max-width: 1140px !important;
+  }
+
+ul.lang-select-list.li-wrap li {
+    
+    text-align: center !important;
+}
+
+
+/****** mega menu *******/
+
+.lang-select-wrap.wpw-mega-menu .lang-select {
+width: 100%;
+background: #fff;
+padding: 10px;
+max-width: 100%;
+/*box-shadow: inherit;*/
+border:none;
+max-width: 400px;
+}
+
+
+@media (min-width: 991px) {
+.lang-select-wrap.wpw-mega-menu button.btn-lang-select {
+    width: 200px;
+}
+.lang-select-wrap.wpw-mega-menu {
+    margin: 0;
+}
+.lang-select-wrap.wpw-mega-menu.wpw-mega-menu-language .lang-select {
+  max-width: 100%;
+}
+
+.lang-select-wrap.wpw-mega-menu .lang-select ul {
+  margin: 0 -5px 0;
+  display: flex;
+    flex-wrap: wrap;
+}
+
+.lang-select-wrap.wpw-mega-menu ul.lang-select-list li {
+    display: block;
+    width: 33.33%;
+    padding:0 5px;
+}
+
+.lang-select-wrap.wpw-mega-menu ul.lang-select-list li span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+.wpw-mega-menu img{
+    margin-top: 15px;
+}
+.wpw-mega-menu-language img {
+    margin-bottom: 20px;
+}
+.wpw-mega-menu-language button.btn-lang-select {
+    width: 215px !important;
+}
+.lang-select-wrap.wpw-mega-menu .btn-lang-select li span {
+    font-size: 17px;
+    margin-left: 19px;
+    margin-top: 20px;
+}
+
+}
+/* mega menu end*/
+
+/*
+@media (min-width: 991px) {
+  .lang-select{
+      min-width: 100%;
+      max-width: 100%;
+    }
+    .lang-select .lang-select-list {
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .lang-select .lang-select-list li {
+      list-style: none;
+      float: none;
+      padding-bottom: 0px;
+      width: 100%;
+      text-align: left;
+      line-height: 0;
+      width: 33%;
+  }
+}

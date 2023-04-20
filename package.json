@@ -1,0 +1,20 @@
+{
+	"name": "omniglot",
+	"version": "1.0.0",
+	"description": "A WordPress Translation Plugin",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org/shamimmoeen/omniglot.git"
+	},
+	"keywords": [],
+	"author": "Mainul Hassan Main <shamim.moeen@gmail.com> (https://mainulhassan.info)",
+	"license": "MIT",
+	"homepage": "https://bitbucket.org/shamimmoeen/omniglot#readme",
+	"devDependencies": {
+		"@wordpress/eslint-plugin": "^3.1.0",
+		"eslint": "^6.4.0"
+	}
+}

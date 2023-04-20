@@ -1,0 +1,159 @@
+// $args = array(
+// 	'auth_key'    => omniglot_get_deepl_api_key(),
+// 	'text'        => 'Hello World',
+// 	'source_lang' => 'EN',
+// 	'target_lang' => 'FR',
+// );
+
+// // $deeplUrl = 'https://api.deepl.com/v2/translate?auth_key='.$auth_key.'&text='.$str.'&source_lang='.$sourceLanguage.'&target_lang='.$targetLanguage.'&tag_handling=xml&split_sentences=1';
+// $url = 'https://api.deepl.com/v2/translate';
+
+// $query = add_query_arg( $args, $url );
+
+// $response = wp_remote_post( $query );
+// $body = wp_remote_retrieve_body( $response );
+
+preg_match_all( '/<img[^>]+>/i', $content, $images );
+
+		foreach ( $images[0] as $image ) {
+			$doc = new DOMDocument();
+			$doc->loadHTML( $image );
+
+			$tags      = $doc->getElementsByTagName( 'img' );
+			$tag       = $tags->item( 0 );
+			$old_title = $tag->getAttribute( 'title' );
+			$old_alt   = $tag->getAttribute( 'alt' );
+			$new_alt   = omniglot_translate_text( $old_alt, $source_lang, $target_lang );
+			$new_title = omniglot_translate_text( $old_title, $source_lang, $target_lang );
+
+			$tag->setAttribute( 'title', $new_title );
+			$tag->setAttribute( 'alt', $new_alt );
+
+			$secure_img = $doc->saveHTML( $tag );
+			$content    = str_replace( $image, $secure_img, $content );
+		}
+
+		return $content;
+
+$doc = new DOMDocument();
+$doc->loadHTML( '<?xml encoding="UTF-8">' . $content );
+
+$tags = $doc->getElementsByTagName( 'a' );
+
+foreach ( $tags as $tag ) {
+	$old_title = $tag->getAttribute( 'title' );
+	$new_title = $this->translate( $old_title, $source_lang, $target_lang );
+	$tag->setAttribute( 'title', $new_title );
+}
+
+$doc->encoding = 'UTF-8';
+
+return $doc->saveHTML();
+
+
+
+
+<?php
+
+$omniglot_translator = new Omniglot_Translator();
+
+$post_id    = 9;
+try {
+	$translated = $omniglot_translator->translate_post( $post_id, 'EN', 'FR' );
+	echo '<pre>';
+	print_r( $translated );
+	echo '</pre>';
+} catch ( Exception $e ) {
+	echo esc_html( $e->getMessage() );
+}
+?>
+<textarea name="" id="" cols="100" rows="10"><?php // echo esc_html( $translated['translated_post_title'] ); ?></textarea>
+<textarea name="" id="" cols="100" rows="10"><?php // echo esc_html( $translated['translated_post_name'] ); ?></textarea>
+<textarea name="" id="" cols="100" rows="10"><?php // echo esc_html( $translated['translated_post_content'] ); ?></textarea>
+<?php
+
+$post_to_be_translated = get_post( $post_id );
+// $post_content = $post_to_be_translated->post_content;
+// $post_content          = apply_filters( 'the_content', $post_to_be_translated->post_content );
+$post_content = 'This is actually why a lot of people choose WordPress to <a title="Ultimate Guide: How to Start a WordPress Blog (Step by Step)" href="https://www.wpbeginner.com/start-a-wordpress-blog/">start a blog</a> or website. <img src="https://deepl.dev/wp-content/uploads/2019/08/teetime.png" alt="This is the datasheet" title="This is the image">';
+
+// $omniglot_translator = new Omniglot_Translator();
+
+// $translated = $omniglot_translator->translate( $post_content, 'EN', 'FR' );
+
+// echo $translated;
+?>
+<textarea name="" id="" cols="100" rows="10"><?php // echo esc_html( $translated ); ?></textarea>
+<?php
+
+// $body = $omniglot_translator->get_translated_attributes( $post_content, 'EN', 'FR' );
+
+// echo $body;
+
+// $post = get_post( 1 );
+?>
+<!-- <textarea name="" id="" cols="100" rows="10"><?php // echo esc_html( $post->post_content ); ?></textarea> -->
+
+
+
+public function get_translated_attributes( $content ) {
+	$dom = new DOMDocument();
+	$dom->loadHTML( $content );
+	// $dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+
+	$translatable_tags = omniglot_tags_n_atts_to_be_translated();
+
+	foreach ( $translatable_tags as $translatable_tag => $attributes ) {
+		$tags_in_content = $dom->getElementsByTagName( $translatable_tag );
+
+		foreach ( $tags_in_content as $tag ) {
+			foreach ( $attributes as $attribute ) {
+				$old_value = $tag->getAttribute( $attribute );
+
+				if ( ! $old_value ) {
+					continue;
+				}
+
+				$before_translated_tag = $dom->saveHTML( $tag );
+
+				$new_value = $this->get_translated( $old_value );
+
+				$tag->setAttribute( $attribute, $new_value );
+
+				$translated_tag = $dom->saveHTML( $tag );
+
+				$content = str_replace(
+					$before_translated_tag,
+					$translated_tag,
+					$content
+				);
+			}
+		}
+	}
+
+	return $content;
+}
+
+try {
+	$translator = new Omniglot_Translator();
+	$translator->set_source_lang( 'auto' );
+	$translator->set_target_lang( 'FR' );
+	// $translator->set_translate_slug( true );
+
+	// $post_content = 'hello world <a href="https://google.com">create website</a>. Let me <a href="https://facebook.com" title="hello shamim">show</a> you. <a href="https://twitter.com" title="hello shamim">show</a> you.';
+	// $post_content .= '<img alt="this-is-the-image-alt" title="This is the image title">';
+	// $post_content = 'This is actually why a lot of people choose WordPress to <a title="Ultimate Guide: How to Start a WordPress Blog (Step by Step)" href="https://www.wpbeginner.com/start-a-wordpress-blog/">start a blog</a> or website. <img src="https://deepl.dev/wp-content/uploads/2019/08/teetime.png" alt="This is the datasheet" title="This is the image">';
+
+	$translated = $translator->get_translated_post( 9 );
+
+	// $translated   = $translator->translate( $post_content, 'EN', 'FR' );
+	// $translated = $translator->get_translated_attributes( $post_content );
+
+	echo '<pre>';
+	print_r( $translated );
+	echo '</pre>';
+
+	// echo $translated;
+} catch ( Exception $e ) {
+	echo $e->getMessage();
+}
